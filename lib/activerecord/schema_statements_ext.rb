@@ -14,13 +14,8 @@ module ActiveRecord::ConnectionAdapters::SchemaStatementsExt
   end
 end
 
-# bundle modified behavior with the SchemaStatements module
-ActiveRecord::ConnectionAdapters::SchemaStatements.module_eval do
-
-  # when SchemaStatements is included, add SchemaStatementsExt overrides
-  def self.included(mod)
-    mod.include ActiveRecord::ConnectionAdapters::SchemaStatementsExt 
-  end
-
+# bundle modified behavior with the AbstractAdapter class
+ActiveRecord::ConnectionAdapters::AbstractAdapter.class_eval do
+  include ActiveRecord::ConnectionAdapters::SchemaStatementsExt
 end
 

@@ -8,8 +8,9 @@ RSpec.describe ActiveRecord::ConnectionAdapters::SchemaStatementsExt do
   let(:both_options) { 'current_options base_options' }
   let(:block) { TestClass.block_was_called }
 
-  class TestClass
+  class TestClass # mimics AbstractAdapter
     include ActiveRecord::ConnectionAdapters::SchemaStatements
+    include ActiveRecord::ConnectionAdapters::SchemaStatementsExt
 
     def self.block_was_called
     end
