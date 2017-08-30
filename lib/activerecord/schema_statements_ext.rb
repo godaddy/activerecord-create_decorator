@@ -15,7 +15,4 @@ module ActiveRecord::ConnectionAdapters::SchemaStatementsExt
 end
 
 # bundle modified behavior with the AbstractAdapter class
-ActiveRecord::ConnectionAdapters::AbstractAdapter.class_eval do
-  include ActiveRecord::ConnectionAdapters::SchemaStatementsExt
-end
-
+ActiveRecord::ConnectionAdapters::AbstractAdapter.include ActiveRecord::ConnectionAdapters::SchemaStatementsExt
