@@ -1,1 +1,1 @@
-require 'activerecord/schema_statements_ext'
+require 'activerecord/abstract_adapter_ext'

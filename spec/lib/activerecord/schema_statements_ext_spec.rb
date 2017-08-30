@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ActiveRecord::ConnectionAdapters::SchemaStatementsExt do
+RSpec.describe ActiveRecord::ConnectionAdapters::AbstractAdapterExt do
 
   let(:table) { 'table_name' }
   let(:create_options) { 'base_options' }
@@ -10,7 +10,7 @@ RSpec.describe ActiveRecord::ConnectionAdapters::SchemaStatementsExt do
 
   class TestClass # mimics AbstractAdapter
     include ActiveRecord::ConnectionAdapters::SchemaStatements
-    include ActiveRecord::ConnectionAdapters::SchemaStatementsExt
+    include ActiveRecord::ConnectionAdapters::AbstractAdapterExt
 
     def self.block_was_called
     end

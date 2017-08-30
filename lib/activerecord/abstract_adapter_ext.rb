@@ -1,4 +1,4 @@
-module ActiveRecord::ConnectionAdapters::SchemaStatementsExt
+module ActiveRecord::ConnectionAdapters::AbstractAdapterExt
   def create_table(table_name, options={}, &block)
     create_options = ActiveRecord::Base.connection_config[:create_options]
     if create_options
@@ -15,4 +15,4 @@ module ActiveRecord::ConnectionAdapters::SchemaStatementsExt
 end
 
 # bundle modified behavior with the AbstractAdapter class
-ActiveRecord::ConnectionAdapters::AbstractAdapter.include ActiveRecord::ConnectionAdapters::SchemaStatementsExt
+ActiveRecord::ConnectionAdapters::AbstractAdapter.include ActiveRecord::ConnectionAdapters::AbstractAdapterExt
